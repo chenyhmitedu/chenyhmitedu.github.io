@@ -51,8 +51,19 @@
       <li>Turning model to function to shorten <a href="https://github.com/chenyhmitedu/CSAVEinJulia">CSAVEinJulia</a>'s model generation time shown in slides.</li>
     </ul>
   </div>
-  <img src="https://api.countapi.xyz/hit/chenyhmitedu.github.io/visits?style=badge" alt="Visitor Count">
-</html>
+  
+  <div id="visits">Loading…</div>
+
+<script>
+fetch('https://api.countapi.xyz/hit/chenyhmitedu.github.io/visits')
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById('visits').textContent =
+      `Visitor Count: ${data.value}`;
+  });
+</script>
+  
+  </html>
 
 
 
