@@ -1,4 +1,29 @@
-body { font-family: Arial; background: #d8f6fc; margin: 40px; }
-.container { max-width: 800px; margin: auto; background: #d8f6fc; padding: 20px; }
+body {
+    font-family: Arial; 
+    background: #61626200; 
+    margin: 40px; 
+}
+
+.container {
+    position: relative;
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+    z-index: 1; /* keep text above the blur layer */
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("./docs/ChatGPT Image_econ_sectors.png");
+    background-size: 120% auto;
+    background-position: center;
+    filter: blur(0px);        /* <-- blur amount */
+    opacity: 0.15;             /* <-- lighten or darken effect */
+    z-index: -1;              /* puts the image behind the text */
+}
+
+
 h1 { margin-bottom: 5px; }
 
