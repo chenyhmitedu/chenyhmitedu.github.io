@@ -64,6 +64,122 @@
   <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1447019/t/0"></script>
   -->
   
+<!-- Visitor counter using CountAPI (https://countapi.xyz)
+     - Does NOT increment when you (the owner) have set owner-mode in this browser.
+     - To set yourself as owner, visit yourpage.html?setOwner=1 once, or click the button below.
+-->
+<div id="visitor-counter" style="font-family: Arial, sans-serif; font-size: 14px;">
+  <span id="count">Loading visitors…</span>
+  <div style="margin-top:6px;">
+    <button id="toggleOwnerBtn" style="padding:6px 8px; font-size:12px; cursor:pointer;"></button>
+<!--    
+    <small style="display:block; margin-top:6px; color:#666;">Owner-mode prevents this browser from incrementing the counter.</small>
+  -->
+  </div>
+</div>
+
+<script>
+(function(){
+  // === CONFIGURE these two strings ===
+  // Choose a namespace and key for your site. Replace with something unique
+  // For example: namespace = "chenyh_site", key = "homepage"
+  const NAMESPACE = "chenyh_site";
+  const KEY = "homepage";
+
+  const countEl = document.getElementById('count');
+  const toggleBtn = document.getElementById('toggleOwnerBtn');
+
+  // localStorage flag key
+  const OWNER_FLAG = 'visitor_counter_owner_mode';
+
+  // Toggle owner UI text
+  function updateOwnerButton() {
+    const isOwner = localStorage.getItem(OWNER_FLAG) === 'true';
+    toggleBtn.textContent = isOwner ? 'Turn off owner-mode (count me)' : 'Turn on owner-mode (do not count me)';
+  }
+
+  // Read query param to set owner flag (so you can use ?setOwner=1)
+  (function setOwnerFromQuery() {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('setOwner') === '1') {
+        localStorage.setItem(OWNER_FLAG, 'true');
+        // remove setOwner from URL to keep things tidy
+        params.delete('setOwner');
+        const newUrl = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
+        history.replaceState(null, '', newUrl);
+      }
+      if (params.get('clearOwner') === '1') {
+        localStorage.removeItem(OWNER_FLAG);
+        params.delete('clearOwner');
+        const newUrl = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
+        history.replaceState(null, '', newUrl);
+      }
+    } catch (e) {
+      // ignore on older browsers
+    }
+  })();
+
+  updateOwnerButton();
+
+  toggleBtn.addEventListener('click', function(){
+    const isOwner = localStorage.getItem(OWNER_FLAG) === 'true';
+    if (isOwner) {
+      localStorage.removeItem(OWNER_FLAG);
+    } else {
+      localStorage.setItem(OWNER_FLAG, 'true');
+    }
+    updateOwnerButton();
+    // refresh displayed count (but do not increment when toggling)
+    fetchCountOnly();
+  });
+
+  // Fetch current count only (no increment)
+  function fetchCountOnly() {
+    const url = `https://api.countapi.xyz/get/${encodeURIComponent(NAMESPACE)}/${encodeURIComponent(KEY)}`;
+    fetch(url)
+      .then(r => r.json())
+      .then(data => {
+        if (data && typeof data.value !== 'undefined') {
+          countEl.textContent = data.value + (data.value === 1 ? ' visitor' : ' visitors');
+        } else {
+          countEl.textContent = '0 visitors';
+        }
+      })
+      .catch(err => {
+        console.warn('CountAPI get error', err);
+        countEl.textContent = 'visitor count unavailable';
+      });
+  }
+
+  // Increment the counter (hit) and display new value
+  function incrementAndDisplay() {
+    const url = `https://api.countapi.xyz/hit/${encodeURIComponent(NAMESPACE)}/${encodeURIComponent(KEY)}`;
+    fetch(url)
+      .then(r => r.json())
+      .then(data => {
+        if (data && typeof data.value !== 'undefined') {
+          countEl.textContent = data.value + (data.value === 1 ? ' visitor' : ' visitors');
+        } else {
+          countEl.textContent = '0 visitors';
+        }
+      })
+      .catch(err => {
+        console.warn('CountAPI hit error', err);
+        // fallback: try to fetch without increment
+        fetchCountOnly();
+      });
+  }
+
+  // Main logic: if owner-mode is set, do not increment; just fetch.
+  (function main() {
+    const isOwner = localStorage.getItem(OWNER_FLAG) === 'true';
+    if (isOwner) {
+      fetchCountOnly();
+    } else {
+      incrementAndDisplay();
+    }
+  })();
 
 
 
