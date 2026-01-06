@@ -1,78 +1,83 @@
 <!DOCTYPE html>
 <html>
-<head>
-  
-  <meta charset="UTF-8">
-  <title>Henry Chen – Home</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  
-  <div class="container">
-    <h1 style="text-align: center">Workshop for economic modeling in Julia</h1>
-    <p style="text-align: center">Y.-H. Henry Chen</p>
-    <p style="text-align: justify; font-size: 16px">
-      As an open-source programming language, Julia is getting popular in scientific computing, in part due to its nonproprietary nature, 
-      speed potential and extensive packages for applications. The goal of this workshop is to provide CS3 researchers an introduction to economic modeling 
-      using Julia. The background in computable general equilibrium (CGE) modeling using GAMS/MPSGE is helpful but not required. <br><br> 
+    
+    <head>
+      <title>Y.-H. Henry Chen – Home</title>
+      <script></script>
+      <style></style>
+      <link rel="stylesheet" href="style.css">
+      <meta charset="UTF-8">
+      <base></base>
+    </head>
+    
+    <body>
+
+      <div class="container">
+        <h1 style="text-align: center">Workshop for economic modeling in Julia</h1>
+        <p style="text-align: center">Y.-H. Henry Chen</p>
+        <p style="text-align: justify; font-size: 16px">
+          As an open-source programming language, Julia is getting popular in scientific computing, in part due to its nonproprietary nature, 
+          speed potential and extensive packages for applications. The goal of this workshop is to provide CS3 researchers an introduction to economic modeling 
+          using Julia. The background in computable general equilibrium (CGE) modeling using GAMS/MPSGE is helpful but not required. <br><br> 
+
+          The workshop will begin from CGE theories, and then proceed to Julia Basics and modeling exercises using Julia. I will borrow some examples presented in <a href="https://www.mpsge.org/tutorial.pdf"> James Markusen’s CGE course </a> and convert them 
+          into Julia versions, so that participants get an idea about how to do similar exercises on their own. Other topics such as data processing in 
+          Julia may be covered later if any interest. <br><br>
+
+          The workshop will include four online one-hour meetings every four weeks with possible future extension. The plan is to hold the 
+          first meeting in January, 2026.
+        
+        </p>
       
-      The workshop will begin from CGE theories, and then proceed to Julia Basics and modeling exercises using Julia. I will borrow some examples presented in <a href="https://www.mpsge.org/tutorial.pdf"> James Markusen’s CGE course </a> and convert them 
-      into Julia versions, so that participants get an idea about how to do similar exercises on their own. Other topics such as data processing in 
-      Julia may be covered later if any interest. <br><br>
+        <h2>Schedule and topic</h2>
+        <ul>
+          <li>10 – 11 am on Tuesday, 01/06/26 — Julia basics and VS code</li>
+          <li>10 – 11 am on Tuesday, 02/03/26 — CGE in Julia (Part 1)</li>
+          <li>10 – 11 am on Tuesday, 03/03/26 — CGE in Julia (Part 2)</li>
+          <li>10 – 11 am on Tuesday, 03/31/26 — Julia project environment</li>
+        </ul>
       
-      The workshop will include four online one-hour meetings every four weeks with possible future extension. The plan is to hold the 
-      first meeting in January, 2026.
+        <h2>Contact</h2>
+        <p style="font-size: 16px">Y.-H. Henry Chen</p>
+        <ul>
+          <li>Research Scientist, MIT Center for Sustainability Science and Strategy</li>
+          <li>Email: chenyh[at]mit.edu</li>
+        </ul>
+      
+        <h2>Course materials</h2>
+        <ul>
+          <li><a href="https://chenyhmitedu.github.io/docs/Course materials_001.pdf">Preparations before the first meeting</a></li>
+          <li><a href="https://chenyhmitedu.github.io/docs/Workshop for economic modeling in Julia_01.pdf">Slides #1: Julia basics and VS code</a></li>
+        </ul>
+      
+        <h2>Julia project and progress</h2>
+        <ul>
+          <li>Exploring and avoiding the slower solve due to "the cold-start issue" caused by using the BenchmarkTools.jl in measuring running time (12/07/25). </li>
+          <li>Using non-parametric estimation with boostrap to construct the confidence intervals of median time differences between CSAVEinGAMS and CSAVEinJulia (12/04/25). </li>
+          <li>Turning model to function to shorten <a href="https://github.com/chenyhmitedu/CSAVEinJulia">CSAVEinJulia</a>'s model generation time shown in slides (11/27/25).</li>
+          <li>Comparing general equilibrium modeling in Julia and GAMS: An example using CSAVE (<a href="https://chenyhmitedu.github.io/docs/Julia_vs_GAMS_using_CSAVE_20251118.pdf">slides</a>) (11/18/25). </li>
+        </ul>
+      </div>
 
-    </p>
+      <!--
+      <a href='http://www.freevisitorcounters.com' style="visibility:hidden;">http://freevisitorcounters.com</a> 
+      <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=b810eb9146c8ba9d057b8aea83543bd4be3de0d7'></script>
+      <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1447017/t/5"></script>
+      -->
+    
+      <!--
+      <a href='http://www.freevisitorcounters.com'>http://freevisitorcounters.com</a> 
+      <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=0199f9c88a4f7e65a0e9ccb968e7f032f253cb19'></script>
+      <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1447019/t/0"></script>
+      -->
 
-    <h2>Schedule and topic</h2>
-    <ul>
-      <li>10 – 11 am on Tuesday, 01/06/26 — Julia basics and VS code</li>
-      <li>10 – 11 am on Tuesday, 02/03/26 — CGE in Julia (Part 1)</li>
-      <li>10 – 11 am on Tuesday, 03/03/26 — CGE in Julia (Part 2)</li>
-      <li>10 – 11 am on Tuesday, 03/31/26 — Julia project environment</li>
-    </ul>
-
-    <h2>Contact</h2>
-    <p style="font-size: 16px">Y.-H. Henry Chen</p>
-    <ul>
-      <li>Research Scientist, MIT Center for Sustainability Science and Strategy</li>
-      <li>Email: chenyh[at]mit.edu</li>
-    </ul>
-
-    <h2>Course materials</h2>
-    <ul>
-      <li><a href="https://chenyhmitedu.github.io/docs/Course materials_001.pdf">Preparations before the first meeting</a></li>
-    </ul>
-
-    <h2>Julia project and progress</h2>
-    <ul>
-      <li>Exploring and avoiding the slower solve due to "the cold-start issue" caused by using the BenchmarkTools.jl in measuring running time (12/07/25). </li>
-      <li>Using non-parametric estimation with boostrap to construct the confidence intervals of median time differences between CSAVEinGAMS and CSAVEinJulia (12/04/25). </li>
-      <li>Turning model to function to shorten <a href="https://github.com/chenyhmitedu/CSAVEinJulia">CSAVEinJulia</a>'s model generation time shown in slides (11/27/25).</li>
-      <li>Comparing general equilibrium modeling in Julia and GAMS: An example using CSAVE (<a href="https://chenyhmitedu.github.io/docs/Julia_vs_GAMS_using_CSAVE_20251118.pdf">slides</a>) (11/18/25). </li>
-    </ul>
-  </div>
-  
-  <!--
-  <a href='http://www.freevisitorcounters.com' style="visibility:hidden;">http://freevisitorcounters.com</a> 
-  <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=b810eb9146c8ba9d057b8aea83543bd4be3de0d7'></script>
-  <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1447017/t/5"></script>
-  -->
-
-  <!--
-  <a href='http://www.freevisitorcounters.com'>http://freevisitorcounters.com</a> 
-  <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=0199f9c88a4f7e65a0e9ccb968e7f032f253cb19'></script>
-  <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1447019/t/0"></script>
-  -->
-  
-<!-- Visitor counter using CountAPI (https://countapi.xyz)
-     - Does NOT increment when you (the owner) have set owner-mode in this browser.
-     - To set yourself as owner, visit yourpage.html?setOwner=1 once, or click the button below.
--->
-
-</body>
-  </html>
+    <!-- Visitor counter using CountAPI (https://countapi.xyz)
+         - Does NOT increment when you (the owner) have set owner-mode in this browser.
+         - To set yourself as owner, visit yourpage.html?setOwner=1 once, or click the button below.
+    -->
+    
+    </body>
+</html>
 
 
 
