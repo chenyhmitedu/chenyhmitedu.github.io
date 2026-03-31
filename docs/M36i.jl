@@ -1,9 +1,8 @@
 # Model M36: Closed 2x2 Economy --  Taxes and Classical Unemployment
 using Pkg
 Pkg.add("JuMP")
-Pkg.add("Ipopt")
 Pkg.add("MPSGE")
-using JuMP, Ipopt, MPSGE
+using JuMP, MPSGE
 
 #=
 
@@ -36,9 +35,9 @@ SF  = S ∪ F
 
 # Define I/O parameters
 
-out0 = Dict(i => 0 for i ∈ XY ∪ W)
-in0  = Dict((i, j) => 0 for i ∈ XY ∪ W ∪ F, j ∈ XY ∪ W)
-end0 = Dict((i, j) => 0 for i ∈ F, j ∈ C)
+out0 = Dict(i => 0 for i ∈ XY ∪ W)                              # This is for the output parameter
+in0  = Dict((i, j) => 0 for i ∈ XY ∪ W ∪ F, j ∈ XY ∪ W)        # This is for input parameter
+end0 = Dict((i, j) => 0 for i ∈ F, j ∈ C)                       # This is for endowment parameter
 
 # Assign I/O parameters
 
@@ -117,6 +116,7 @@ end
 end)
 
 fix(P[:W], 1)
+set_lower_bound(M36[:U], 0.0)
 
 solve!(M36, cumulative_iteration_limit = 0)
 benchmark = generate_report(M36)
@@ -134,4 +134,6 @@ fix(U, 0.2)
 solve!(M36, cumulative_iteration_limit = 2000)
 simulation_02 = generate_report(M36)
 println(simulation_02)
+
+
 
