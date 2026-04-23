@@ -1,7 +1,11 @@
-/* Layout */
+/* =========================
+   GLOBAL LAYOUT
+========================= */
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
+  height: 100vh;
 }
 
 .layout {
@@ -9,7 +13,10 @@ body {
   height: 100vh;
 }
 
-/* Sidebar */
+/* =========================
+   SIDEBAR
+========================= */
+
 .sidebar {
   width: 20%;
   min-width: 180px;
@@ -20,40 +27,11 @@ body {
 }
 
 .sidebar h2 {
-  font-size: 18px;
-  margin-bottom: 15px;
+  font-size: 12px;
+  margin-bottom: 12px;
 }
 
-.sidebar button {
-  display: block;
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 10px;
-  border: none;
-  background-color: #34495e;
-  color: white;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.sidebar button:hover {
-  background-color: #1abc9c;
-}
-
-/* Main content */
-.content {
-  width: 80%;
-  padding: 30px;
-  overflow-y: auto;
-  box-sizing: border-box;
-}
-
-/* Inner container */
-.container {
-  max-width: 900px;
-  margin: auto;
-}
-
+/* Navigation buttons */
 .nav-button {
   display: block;
   width: 100%;
@@ -61,15 +39,54 @@ body {
   padding: 10px;
   text-align: center;
   text-decoration: none;
-  border: none;
+  border-radius: 5px;
   background-color: #34495e;
   color: white;
-  cursor: pointer;
-  border-radius: 5px;
 }
 
 .nav-button:hover {
   background-color: #1abc9c;
 }
 
+/* =========================
+   CONTENT AREA
+========================= */
 
+.content {
+  width: 80%;
+  padding: 30px;
+  overflow-y: auto;
+  box-sizing: border-box;
+  background-color: #f8f8f8;
+  position: relative; /* required for pseudo-element layering */
+}
+
+/* Blurred background image layer */
+.content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image: url('./docs/econ_sectors.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 500px;
+
+  filter: blur(1px);
+  transform: scale(1.1); /* avoids blur edge cutoff */
+  opacity: 0.3;
+
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* =========================
+   CONTENT WRAPPER
+========================= */
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  position: relative;
+  z-index: 1; /* keeps text above background */
+}
