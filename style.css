@@ -29,6 +29,7 @@ body {
 .sidebar h2 {
   font-size: 12px;
   margin-bottom: 12px;
+  text-align: center; /* ✅ center the heading */
 }
 
 /* Navigation buttons */
