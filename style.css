@@ -71,7 +71,7 @@ body {
   background-image: url('./docs/econ_sectors.png');
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: 500px;
+  background-size: 800px;
 
   filter: blur(1px);
   transform: scale(1.1); /* avoids blur edge cutoff */
