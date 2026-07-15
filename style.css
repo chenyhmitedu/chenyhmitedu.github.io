@@ -19,7 +19,7 @@ body {
 
 .sidebar {
   width: 20%;
-  min-width: 180px;
+  min-width: 200px;
   background-color: #2c3e50;
   color: white;
   padding: 20px;
@@ -38,7 +38,7 @@ body {
   width: 100%;
   margin-bottom: 10px;
   padding: 10px;
-  text-align: center;
+  text-align: left;
   text-decoration: none;
   border-radius: 5px;
   background-color: #34495e;
@@ -46,7 +46,13 @@ body {
 }
 
 .nav-button:hover {
-  background-color: #1abc9c;
+  background-color: #72a2d3;
+}
+
+.nav-button.active {
+    background-color:#72a2d3;
+    color: white;
+    font-weight: bold;
 }
 
 /* =========================
